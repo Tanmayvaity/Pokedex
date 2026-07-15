@@ -73,7 +73,8 @@ fun HomeScreen(
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = PokedexRed,
-                    titleContentColor = Color.White
+                    titleContentColor = Color.White,
+                    scrolledContainerColor = PokedexRed
                 ),
                 scrollBehavior = scrollBehavior,
                 windowInsets = TopAppBarDefaults.windowInsets
