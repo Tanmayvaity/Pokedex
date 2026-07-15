@@ -1,29 +1,14 @@
 package com.github.tanmay.pokedex
 
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.safeContentPadding
-import androidx.compose.material3.Button
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
-import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import com.github.tanmay.pokedex.navigation.NavigationRoot
-import org.jetbrains.compose.resources.painterResource
-
-import pokedex.shared.generated.resources.Res
-import pokedex.shared.generated.resources.compose_multiplatform
+import com.github.tanmay.pokedex.ui.theme.PokedexTheme
 
 @Composable
 @Preview
 fun App() {
-    MaterialTheme {
+    PokedexTheme(darkTheme = false) {
         NavigationRoot()
     }
 }

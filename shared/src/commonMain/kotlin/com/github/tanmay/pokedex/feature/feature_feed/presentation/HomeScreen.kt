@@ -17,10 +17,12 @@ import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.github.tanmay.pokedex.core.domain.model.PokemonSprite
 import com.github.tanmay.pokedex.feature.feature_feed.presentation.Compoents.ErrorCard
 import com.github.tanmay.pokedex.feature.feature_feed.presentation.Compoents.LoadingContent
 import com.github.tanmay.pokedex.feature.feature_feed.presentation.Compoents.PokemonGrid
 import com.github.tanmay.pokedex.ui.theme.PokedexRed
+import com.github.tanmay.pokedex.ui.theme.PokedexTheme
 import org.koin.compose.viewmodel.koinViewModel
 
 
@@ -43,9 +45,8 @@ fun HomeScreen(
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
 
     Scaffold(
-        modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection).background(
-            MaterialTheme.colorScheme.background
-        ),
+        modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
+        containerColor = MaterialTheme.colorScheme.background,
         contentWindowInsets = WindowInsets(0),
         topBar = {
             TopAppBar(
@@ -102,10 +103,17 @@ fun HomeScreen(
 @Preview
 @Composable
 fun HomeScreenPreview() {
-    MaterialTheme {
+    PokedexTheme(darkTheme = false) {
         HomeScreen(
             state = HomeState(
-                sprites = HomeState.ContentState.Error("loading error")
+                sprites = HomeState.ContentState.Success(List(6) { index ->
+                    val id = index + 1
+                    PokemonSprite(
+                        id = id,
+                        name = "Pokemon $id",
+                        spriteUrl = ""
+                    )
+                })
             )
         )
     }

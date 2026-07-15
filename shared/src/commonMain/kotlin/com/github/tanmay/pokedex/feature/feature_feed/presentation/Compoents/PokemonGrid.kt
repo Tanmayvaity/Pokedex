@@ -14,6 +14,7 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -25,6 +26,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
 import com.github.tanmay.pokedex.core.domain.model.PokemonSprite
+import com.github.tanmay.pokedex.ui.theme.PokedexTheme
 
 @Composable
 fun PokemonGrid(
@@ -61,6 +63,10 @@ fun PokemonCard(
     Card(
         onClick = onClick,
         shape = RoundedCornerShape(16.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.surfaceContainer,
+            contentColor = MaterialTheme.colorScheme.onSurface
+        ),
         modifier = modifier.fillMaxWidth()
     ) {
         Column(
@@ -108,7 +114,7 @@ private val samplePokemon = List(6) { index ->
 @Preview
 @Composable
 fun PokemonGridPreview() {
-    MaterialTheme {
+    PokedexTheme {
         PokemonGrid(
             pokemon = samplePokemon
         )
@@ -118,7 +124,7 @@ fun PokemonGridPreview() {
 @Preview
 @Composable
 fun PokemonCardPreview() {
-    MaterialTheme {
+    PokedexTheme {
         PokemonCard(
             pokemon = samplePokemon.first()
         )

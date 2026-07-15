@@ -19,6 +19,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.github.tanmay.pokedex.ui.theme.PokedexTheme
 
 @Composable
 fun ErrorCard(
@@ -71,7 +72,7 @@ fun ErrorCard(
 @Preview
 @Composable
 fun ErrorCardPreview(){
-    MaterialTheme{
+    PokedexTheme{
         ErrorCard(
             message = "error while loading"
         )
