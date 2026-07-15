@@ -1,8 +1,8 @@
-package com.github.tanmay.pokedex.feature.feature_feed.presentation
+package com.github.tanmay.pokedex.feature.feature_feed.presentation.home
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -23,8 +23,10 @@ import com.github.tanmay.pokedex.feature.feature_feed.presentation.Compoents.Loa
 import com.github.tanmay.pokedex.feature.feature_feed.presentation.Compoents.PokemonGrid
 import com.github.tanmay.pokedex.ui.theme.PokedexRed
 import com.github.tanmay.pokedex.ui.theme.PokedexTheme
+import org.jetbrains.compose.resources.painterResource
 import org.koin.compose.viewmodel.koinViewModel
-
+import pokedex.shared.generated.resources.Res
+import pokedex.shared.generated.resources.ic_search
 
 
 @Composable
@@ -45,7 +47,7 @@ fun HomeScreen(
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
 
     Scaffold(
-        modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
+        modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
         containerColor = MaterialTheme.colorScheme.background,
         contentWindowInsets = WindowInsets(0),
         topBar = {
@@ -62,7 +64,11 @@ fun HomeScreen(
                     IconButton(
                         onClick = {}
                     ) {
-
+                        Icon(
+                            painter = painterResource(Res.drawable.ic_search),
+                            contentDescription = "Search Icon",
+                            tint = Color.White
+                        )
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(

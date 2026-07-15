@@ -1,4 +1,4 @@
-package com.github.tanmay.pokedex.feature.feature_feed.presentation
+package com.github.tanmay.pokedex.feature.feature_feed.presentation.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
